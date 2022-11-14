@@ -1,0 +1,13 @@
+create by Perlin Maxim
+
+1. прежде чем использовать данные файлы установите на вм terraform  и ansible 
+2 внутри папки с конфиг файлом  yandex.tf  создайте подкаталог   /ansible
+3 в этом подкаталоге разместите  второй скрипт с playbook.yml
+4 в основном файле terraform  перед созданием вм заполните данные поля вашими данными с yc
+provider "yandex" {
+  token     = ""
+  cloud_id  = ""
+  folder_id = ""
+5. необходимо создать ssh key  адресом расположения является ubuntu:${file("~/.ssh/id_rsa.pub")}"
+6 после проделанных операции выполняем terraform apply 
+7 и устанавливаем nginx ansible-playbook -i inventory ansible/playbook.yml
